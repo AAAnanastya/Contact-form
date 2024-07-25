@@ -17,54 +17,63 @@
         <div class="contact-form__block">
           <div class="contact-form__placeholder">First Name</div>
           <input class="contact-form__field" type="text" name="user-first-name" minlength="3" />
+          <div class="notification__hidden">This field is required</div>
         </div>
 
         <div class="contact-form__block">
           <div class="contact-form__placeholder">Last Name</div>
           <input class="contact-form__field" type="text" name="user-last-name" minlength="3" />
+          <div class="notification__hidden">This field is required</div>
         </div>
       </div>
 
       <div class="contact-form__block">
         <div class="contact-form__placeholder">Email Address</div>
         <input class="contact-form__field" type="email" name="user-email" />
+        <div class="notification__hidden">This field is required</div>
+        <div class="notification__hidden">Please enter a valid email address</div>
       </div>
 
       <div class="contact-form__placeholder">Query Type</div>
       <div class="contact-form__multiple-items-block">
-        <div class="contact-form__field radiobutton unselected">
-          <input type="radio" name="query-type" value="general-enquiry" />
+        <div class="contact-form__field radiobutton" onclick="selectRadio('general-enquiry')">
+          <input type="radio" name="query-type" value="general-enquiry" id="general-enquiry" />
           <label for="general-enquiry">General Enquiry</label>
         </div>
 
-        <div class="contact-form__field radiobutton unselected">
-          <input type="radio" name="query-type" value="support-request" />
+        <div class="contact-form__field radiobutton" onclick="selectRadio('support-request')">
+          <input type="radio" name="query-type" value="support-request" id="support-request" />
           <label for="support-request">Support Request</label>
         </div>
       </div>
+      <div id="query_notification" class="notification__hidden">Please select a query type</div>
 
       <div class="contact-form__block">
         <div class="contact-form__placeholder">Message</div>
         <textarea
           class="contact-form__field"
-          style="height: 80px"
+          style="resize: vertical; min-height: 100px; max-height: 200px"
           name="message"
           id="query-message"
           cols="30"
           rows="10"
           maxlength="1000"></textarea>
+        <div class="notification__hidden">This field is required</div>
       </div>
 
       <div class="contact-form__footer">
-        <div class="contact-form__footer__permission">
-          <input type="checkbox" name="contact-permission" />
+        <div class="contact-form__footer__permission" onclick="checkboxActive('contact-permission')">
+          <input type="checkbox" name="contact-permission" id="contact-permission" />
           <label class="contact-form__placeholder" style="margin: 0" for="contact-permission"
             >I concent to being contacted by the team</label
           >
         </div>
+        <div id="checkbox_notification" class="notification__hidden">To submit this form, please consent to being contacted</div>
 
         <button class="contact-form__footer__confirmation-button" type="button">Submit</button>
       </div>
     </form>
   </body>
+
+  <script src="script.js"></script>
 </html>
